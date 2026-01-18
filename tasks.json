@@ -9,6 +9,15 @@
     "hide": "on_success"
   },
   {
+    "label": "PROS: Build",
+    "command": "make -B",
+    "env": {
+      "PATH": "{TOOLCHAIN_PATH}"
+    },
+    "allow_concurrent_runs": false,
+    "hide": "on_success"
+  },
+  {
     "label": "PROS: Upload",
     "command": "pros upload",
     "env": {
