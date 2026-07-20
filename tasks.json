@@ -2,36 +2,24 @@
   {
     "label": "PROS: Build",
     "command": "make",
-    "env": {
-      "PATH": "{TOOLCHAIN_PATH}"
-    },
     "allow_concurrent_runs": false,
     "hide": "on_success"
   },
   {
-    "label": "PROS: Build",
+    "label": "PROS: Build (Force)",
     "command": "make -B",
-    "env": {
-      "PATH": "{TOOLCHAIN_PATH}"
-    },
     "allow_concurrent_runs": false,
     "hide": "on_success"
   },
   {
     "label": "PROS: Upload",
     "command": "pros upload",
-    "env": {
-      "PATH": "{TOOLCHAIN_PATH}"
-    },
     "use_new_terminal": false,
     "hide": "on_success"
   },
   {
     "label": "PROS: Build & Upload",
     "command": "make && pros upload",
-    "env": {
-      "PATH": "{TOOLCHAIN_PATH}"
-    },
     "hide": "on_success"
   },
   {
@@ -46,34 +34,22 @@
   },
   {
     "label": "PROS: Set Robot Name",
-    "env": {
-      "PATH": "{TOOLCHAIN_PATH}"
-    },
-    "command": "read -p \"What will you call your robot? \" robot_name && pros v5 set_variable robotname $robot_name",
+    "command": "read -p \"What will you call your robot? \" robot_name && pros v5 set_variable robotname \"$robot_name\"",
     "hide": "on_success"
   },
   {
     "label": "PROS: Run Program",
-    "env": {
-      "PATH": "{TOOLCHAIN_PATH}"
-    },
     "command": "slot=$(cat $ZED_WORKTREE_ROOT/project.pros | python3 -c \"import sys, json; print(json.load(sys.stdin)['py/state']['upload_options']['slot'])\") && pros v5 run $slot",
     "hide": "always"
   },
   {
-    "label": "PROS: Stop program",
-    "env": {
-      "PATH": "{TOOLCHAIN_PATH}"
-    },
+    "label": "PROS: Stop Program",
     "command": "pros v5 stop",
     "hide": "always"
   },
   {
     "label": "PROS: Capture",
-    "env": {
-      "PATH": "{TOOLCHAIN_PATH}"
-    },
-    "command": "read -p \"Where should the screenshot be saved (give a valid file, not folder path)? \" desired_dir && pros v5 capture $desired_dir",
+    "command": "read -p \"Where should the screenshot be saved (give a valid file, not folder path)? \" desired_path && pros v5 capture \"$desired_path\"",
     "hide": "on_success"
   }
 ]
