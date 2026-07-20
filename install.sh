@@ -172,6 +172,7 @@ success "Templates installed"
 step "Configuring PATH..."
 
 ln -sf "$PREFIX/cli/pros" "$BIN_DIR/pros"
+ln -sf "$PREFIX/pros-zed" "$BIN_DIR/pros-zed"
 ln -sf "$PREFIX/vexcom/vexcom" "$BIN_DIR/vexcom"
 
 PATH_LINE='export PATH="$HOME/.local/bin:$HOME/.local/share/pros-zed/toolchain/bin:$PATH"'
